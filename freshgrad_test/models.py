@@ -59,8 +59,9 @@ class CandidateInfo(models.Model):
     # technologies_interested = models.ManyToManyField(
     #     Technology, verbose_name=_("Choose the technologies you are interested to work on/learn")
     # )
-    other_technologies = models.CharField(
-        max_length=255, verbose_name=_("Any other technologies your are interested in?")
+    other_technologies = models.TextField(
+        verbose_name=_("Which technologies are you interested to work in? (Python/Django, Scrapy, Android, iOS, "
+                       "PHP, Javascript/ReactJS, Machine Learning)")
     )
     university_projects = models.TextField(verbose_name=_("Tell us something about your university project(s)"))
     extra_activities = models.TextField(

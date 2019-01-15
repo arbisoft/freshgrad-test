@@ -3,6 +3,7 @@ Forms for freshgrad test
 """
 
 from django import forms
+from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 
 from .models import CandidateInfo
@@ -12,24 +13,28 @@ class CandidateInfoForm(forms.ModelForm):
     """
     Form to gather additional info of candidate
     """
-    # Have to define these fields in the form to avoid these fields being displayed
-    # in optional fields at the bottom of registration form
-    YES_NO = (
-        ('', ''),
-        (0, 'No'),
-        (1, 'Yes'),
+    cnic_number = forms.CharField(
+        label=_("CNIC Number"),
+        validators=[
+            RegexValidator(
+                regex=r'[0-9]{5}-[0-9]{7}-[0-9]{1}',
+                message="CNIC Number is not valid. CNIC number format should be 00000-0000000-0."
+            )
+        ]
     )
-    interested_in_python = forms.ChoiceField(label=_("Interested in Python/Django"), choices=YES_NO)
-    interested_in_scrappy = forms.ChoiceField(label=_("Interested in Scrappy"), choices=YES_NO)
-    interested_in_andriod = forms.ChoiceField(label=_("Interested in Android"), choices=YES_NO)
-    interested_in_ios = forms.ChoiceField(label=_("Interested in iOS"), choices=YES_NO)
-    interested_in_php = forms.ChoiceField(label=_("Interested in PHP"), choices=YES_NO)
-    interested_in_javascript = forms.ChoiceField(label=_("Interested in Javascript/ReactJS"), choices=YES_NO)
-    interested_in_machine_learning = forms.ChoiceField(label=_("Interested in Machine Learning"), choices=YES_NO)
 
     class Meta(object):
         model = CandidateInfo
-        exclude = ('user', )
+        exclude = (
+            'user',
+            'interested_in_python',
+            'interested_in_scrappy',
+            'interested_in_andriod',
+            'interested_in_ios',
+            'interested_in_php',
+            'interested_in_javascript',
+            'interested_in_machine_learning',
+        )
         serialization_options = {
             'university_projects': {
                 'field_type': 'textarea',
@@ -58,5 +63,8 @@ class CandidateInfoForm(forms.ModelForm):
             'references': {
                 'field_type': 'textarea',
             },
+            'other_technologies': {
+                'field_type': 'textarea',
+            }
 
         }

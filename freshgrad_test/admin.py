@@ -27,7 +27,17 @@ class CandidateInfoAdmin(admin.ModelAdmin):
     def export_as_csv(self, request, queryset):
 
         meta = self.model._meta
-        excluded_fields = ['id', 'user']
+        excluded_fields = [
+            'id',
+            'user',
+            'interested_in_python',
+            'interested_in_scrappy',
+            'interested_in_andriod',
+            'interested_in_ios',
+            'interested_in_php',
+            'interested_in_javascript',
+            'interested_in_machine_learning',
+        ]
         model_field_names = [field.name for field in meta.fields if field.name not in excluded_fields]
 
         addl_field_names = ['email', 'name']
