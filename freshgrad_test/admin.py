@@ -50,7 +50,7 @@ class CandidateInfoAdmin(admin.ModelAdmin):
         for obj in queryset:
             model_field_data = [getattr(obj, field) for field in model_field_names]
             addl_field_data = [obj.user.email, obj.user.profile.name]
-            writer.writerow(addl_field_data + model_field_data)
+            writer.writerow([data.encode("utf-8") for data in addl_field_data + model_field_data])
 
         return response
 
