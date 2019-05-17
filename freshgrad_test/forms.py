@@ -57,6 +57,10 @@ class CandidateInfoForm(forms.ModelForm):
             'why_arbisoft': {
                 'field_type': 'textarea',
             },
+            'expected_salary': {  # added this to hide salary expectation field for internship test
+                'field_type': 'hidden',
+                'default': 'N/A',
+            },
             'career_plans': {
                 'field_type': 'textarea',
             },
