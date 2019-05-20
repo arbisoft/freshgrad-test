@@ -82,8 +82,8 @@ class CandidateInfo(models.Model):
     why_arbisoft = models.TextField(
         verbose_name=_("Why Arbisoft?")
     )
-    expected_salary = models.CharField(
-        max_length=255, verbose_name=_("Your salary expectations?")
+    expected_salary = models.TextField(
+        verbose_name=_("Your salary expectations?")
     )
     career_plans = models.TextField(
         verbose_name=_("Your career plans two years down the line?")
