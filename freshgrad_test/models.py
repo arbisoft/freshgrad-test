@@ -5,6 +5,8 @@ from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from .constants import CAMPUS, UNIVERSITIES
+
 # Backwards compatible settings.AUTH_USER_MODEL
 USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
@@ -29,7 +31,11 @@ class CandidateInfo(models.Model):
     """
     user = models.OneToOneField(USER_MODEL)
     cnic_number = models.CharField(max_length=20, verbose_name=_("CNIC Number"))
-    university = models.CharField(max_length=100)
+    university = models.CharField(max_length=60, choices=UNIVERSITIES)
+    campus = models.CharField(max_length=30, choices=CAMPUS)
+    other_university = models.CharField(
+        max_length=50, blank=True, verbose_name=_("University details, if not in list")
+    )
     city = models.CharField(max_length=30, verbose_name=_("Your current Location (City)"))
     address = models.CharField(max_length=255, verbose_name=_("Permanent Address"))
     contact_number = models.CharField(max_length=30, verbose_name=_("Contact Number(s)"))
