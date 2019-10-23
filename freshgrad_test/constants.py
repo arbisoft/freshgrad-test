@@ -40,18 +40,18 @@ UNIVERSITIES = (
 
 
 CAMPUS = (
-    ('Lahore', _('Lahore')),
-    ('Faisalabad', _('Faisalabad')),
-    ('Islamabad', _('Islamabad')),
-    ('Peshawar', _('Peshawar')),
-    ('Taxilla', _('Taxilla')),
-    ('Vehari', _('Vehari')),
-    ('Gujrat', _('Gujrat')),
-    ('Mianwali', _('Mianwali')),
-    ('Multan', _('Multan')),
-    ('Bahawalpur', _('Bahawalpur')),
-    ('Bahawalnagar', _('Bahawalnagar')),
-    ('Rahim Yar Khan', _('Rahim Yar Khan')),
-    ('Sargodha', _('Sargodha')),
-    ('Other', _('Other'))
+    ('Lahore', 'Lahore'),
+    ('Faisalabad', 'Faisalabad'),
+    ('Islamabad', 'Islamabad'),
+    ('Peshawar', 'Peshawar'),
+    ('Taxilla', 'Taxilla'),
+    ('Vehari', 'Vehari'),
+    ('Gujrat', 'Gujrat'),
+    ('Mianwali', 'Mianwali'),
+    ('Multan', 'Multan'),
+    ('Bahawalpur', 'Bahawalpur'),
+    ('Bahawalnagar', 'Bahawalnagar'),
+    ('Rahim Yar Khan', 'Rahim Yar Khan'),
+    ('Sargodha', 'Sargodha'),
+    ('Other', 'Other')
 )
