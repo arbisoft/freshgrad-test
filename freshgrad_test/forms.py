@@ -37,7 +37,7 @@ class CandidateInfoForm(forms.ModelForm):
         campus = self.cleaned_data['campus']
         other_university = (self.cleaned_data['other_university']).strip()
         if other_university == '' and (university == 'Other' or campus == 'Other'):
-            raise forms.ValidationError(_("Please provide appropriate information for university in optional field"))
+            raise forms.ValidationError(_("Please provide University/Campus details."))
         return other_university
 
     class Meta(object):
