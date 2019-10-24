@@ -31,7 +31,7 @@ class CandidateInfo(models.Model):
     """
     user = models.OneToOneField(USER_MODEL)
     cnic_number = models.CharField(max_length=20, verbose_name=_("CNIC Number"))
-    university = models.CharField(max_length=60, choices=UNIVERSITIES)
+    university = models.CharField(max_length=100, choices=UNIVERSITIES)
     campus = models.CharField(max_length=30, choices=CAMPUS)
     other_university = models.CharField(
         max_length=50, blank=True, verbose_name=_("University details, if not in list")
