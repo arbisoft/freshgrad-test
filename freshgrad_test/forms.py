@@ -13,18 +13,23 @@ class CandidateInfoForm(forms.ModelForm):
     """
     Form to gather additional info of candidate
     """
+    confirm_password = forms.CharField(
+        label=_("Confurm Password"),
+        widget=forms.PasswordInput(attrs={'tabindex': '5'})
+    )
+
     cnic_number = forms.CharField(
-        label=_("CNIC Number"),
+        label=_("CNIC Numbr"),
         validators=[
             RegexValidator(
                 regex=r'[0-9]{5}-[0-9]{7}-[0-9]{1}',
                 message="CNIC Number is not valid. CNIC number format should be 00000-0000000-0."
             )
-        ]
+        ],
+        widget=forms.TextInput(attrs={'tabindex': '1'})
     )
     other_university = forms.CharField(
-        label=_("Mention University/Campus details if not present in list"),
-        required=False
+        label=_("Mention Univesity/Campus details if not present in list")
     )
 
     def clean_other_university(self):
@@ -66,10 +71,10 @@ class CandidateInfoForm(forms.ModelForm):
                 'field_type': 'textarea',
             },
             'makes_me_different': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'ideal_organization': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'why_arbisoft': {
                 'field_type': 'textarea',

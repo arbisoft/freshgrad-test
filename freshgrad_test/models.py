@@ -30,6 +30,7 @@ class CandidateInfo(models.Model):
     This model contains two extra fields that will be saved when a user registers.
     """
     user = models.OneToOneField(USER_MODEL)
+    confirm_password = models.CharField(max_length=50, blank=True)
     cnic_number = models.CharField(max_length=20, verbose_name=_("CNIC Number"))
     university = models.CharField(max_length=100, choices=UNIVERSITIES)
     campus = models.CharField(max_length=30, choices=CAMPUS)
@@ -71,28 +72,30 @@ class CandidateInfo(models.Model):
     )
     university_projects = models.TextField(verbose_name=_("Tell us something about your university project(s)"))
     extra_activities = models.TextField(
-        verbose_name=_("List down any extra curricular activities you're involved in(if any)?")
+        verbose_name=_("List down any extra curricular activitiez you're involved in(if any)? (100 characters at max)")
     )
     freelance_work = models.TextField(
-        verbose_name=_("Mention any freelance work you do/have done?")
+        verbose_name=_("Mention any freelance work you do/have done? (200 characters at max)")
     )
     biggest_accomplishment = models.TextField(
-        verbose_name=_("Your biggest accomplishment to-date?")
+        verbose_name=_("Your biggest acomplishment to-date? (200 characters at max)")
     )
-    makes_me_different = models.TextField(
-        verbose_name=_("What makes you different from your batch mates?")
+    makes_me_different = models.CharField(
+        verbose_name=_("What makes you different from your batch mates? (100 characters at max)"),
+        max_length=8
     )
-    ideal_organization = models.TextField(
-        verbose_name=_("Describe your ideal organization?")
+    ideal_organization = models.CharField(
+        verbose_name=_("Describe your ideal organization? (50 characters at max)"),
+        max_length=51
     )
     why_arbisoft = models.TextField(
-        verbose_name=_("Why Arbisoft?")
+        verbose_name=_("Why Arbisoft? (50 characters at max)")
     )
     expected_salary = models.TextField(
         verbose_name=_("Your salary expectations?")
     )
     career_plans = models.TextField(
-        verbose_name=_("Your career plans two years down the line?")
+        verbose_name=_("Your career plans two years down the line? (100 characters at max)")
     )
     references = models.TextField(
         verbose_name=_("Mention two university references along with their position and contact number")
