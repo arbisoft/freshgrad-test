@@ -72,13 +72,16 @@ class CandidateInfo(models.Model):
     )
     university_projects = models.TextField(verbose_name=_("Tell us something about your university project(s)"))
     extra_activities = models.TextField(
-        verbose_name=_("List down any extra curricular activitiez you're involved in(if any)? (100 characters at max)")
+        verbose_name=_("List down any extra curricular activitiez you're involved in(if any)? (100 characters at max)"),
+        max_length=100
     )
     freelance_work = models.TextField(
-        verbose_name=_("Mention any freelance work you do/have done? (200 characters at max)")
+        verbose_name=_("Mention any freelance work you do/have done? (200 characters at max)"),
+        max_length=200
     )
     biggest_accomplishment = models.TextField(
-        verbose_name=_("Your biggest acomplishment to-date? (200 characters at max)")
+        verbose_name=_("Your biggest acomplishment to-date? (200 characters at max)"),
+        max_length=200
     )
     makes_me_different = models.CharField(
         verbose_name=_("What makes you different from your batch mates? (100 characters at max)"),
@@ -89,13 +92,15 @@ class CandidateInfo(models.Model):
         max_length=51
     )
     why_arbisoft = models.TextField(
-        verbose_name=_("Why Arbisoft? (50 characters at max)")
+        verbose_name=_("Why Arbisoft? (50 characters at max)"),
+        max_length=50
     )
     expected_salary = models.TextField(
         verbose_name=_("Your salary expectations?")
     )
     career_plans = models.TextField(
-        verbose_name=_("Your career plans two years down the line? (100 characters at max)")
+        verbose_name=_("Your career plans two years down the line? (100 characters at max)"),
+        max_length=100
     )
     references = models.TextField(
         verbose_name=_("Mention two university references along with their position and contact number")

@@ -29,7 +29,7 @@ class CandidateInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'tabindex': '1'})
     )
     other_university = forms.CharField(
-        label=_("Mention Univesity/Campus details if not present in list")
+        label=_("Mention Univesity/Campus details if not present in list (optional)")
     )
 
     def clean_other_university(self):
@@ -62,13 +62,13 @@ class CandidateInfoForm(forms.ModelForm):
                 'field_type': 'textarea',
             },
             'extra_activities': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'freelance_work': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'biggest_accomplishment': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'makes_me_different': {
                 'field_type': 'text',
@@ -77,10 +77,10 @@ class CandidateInfoForm(forms.ModelForm):
                 'field_type': 'text',
             },
             'why_arbisoft': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'career_plans': {
-                'field_type': 'textarea',
+                'field_type': 'text',
             },
             'references': {
                 'field_type': 'textarea',
