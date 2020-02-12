@@ -32,6 +32,7 @@ class CandidateInfo(models.Model):
     user = models.OneToOneField(USER_MODEL)
     confirm_password = models.CharField(max_length=50, blank=True)
     cnic_number = models.CharField(max_length=20, verbose_name=_("CNIC Number"))
+    age = models.CharField(max_length=50, verbose_name=_("Age (between 18 to 30)"))
     university = models.CharField(max_length=100, choices=UNIVERSITIES)
     campus = models.CharField(max_length=30, choices=CAMPUS)
     other_university = models.CharField(
@@ -100,10 +101,12 @@ class CandidateInfo(models.Model):
     )
     career_plans = models.TextField(
         verbose_name=_("Your career plans two years down the line? (100 characters at max)"),
-        max_length=100
+        max_length=100,
+        blank=True
     )
     references = models.TextField(
-        verbose_name=_("Mention two university references along with their position and contact number")
+        verbose_name=_("Mention two university references along with their position and contact number"),
+        blank=True
     )
 
 

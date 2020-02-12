@@ -3,7 +3,7 @@ Forms for freshgrad test
 """
 
 from django import forms
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 from django.utils.translation import gettext_lazy as _
 
 from .models import CandidateInfo
@@ -28,22 +28,43 @@ class CandidateInfoForm(forms.ModelForm):
         ],
         widget=forms.TextInput(attrs={'tabindex': '1'})
     )
-    other_university = forms.CharField(
-        label=_("Mention Univesity/Campus details if not present in list (optional)")
+
+    contact_number = forms.CharField(
+        label='Contact Number(s)',
+        validators=[
+            RegexValidator(
+                regex=r'[0-9]',
+                message="Contact Number is not valid. Contact Number format should be digits only."
+            )
+        ]
     )
 
-    def clean_other_university(self):
-        """
-        Check that the user has provided the relevant information
-        if the university/campus information is not present in the
-        given options.
-        """
-        university = self.cleaned_data['university']
-        campus = self.cleaned_data['campus']
-        other_university = (self.cleaned_data['other_university']).strip()
-        if other_university == '' and (university == 'Other' or campus == 'Other'):
-            raise forms.ValidationError(_("Please provide University/Campus details."))
-        return other_university
+    age = forms.CharField(
+        label="Age (between 18 to 30)",
+        validators=[
+            RegexValidator(
+                regex=r'^(1[9]|2[0-9]|3[01])$',
+                message="Age is not valid. Age should be between 18 to 30."
+            )
+        ]
+    )
+    # other_university = forms.CharField(
+    #     label=_("Mention Univesity/Campus details if not present in list (optional)")
+    # )
+
+
+    # def clean_other_university(self):
+    #     """
+    #     Check that the user has provided the relevant information
+    #     if the university/campus information is not present in the
+    #     given options.
+    #     """
+    #     university = self.cleaned_data['university']
+    #     campus = self.cleaned_data['campus']
+    #     other_university = (self.cleaned_data['other_university']).strip()
+    #     if other_university == '' and (university == 'Other' or campus == 'Other'):
+    #         raise forms.ValidationError(_("Please provide University/Campus details."))
+    #     return other_university
 
     class Meta(object):
         model = CandidateInfo
@@ -56,6 +77,10 @@ class CandidateInfoForm(forms.ModelForm):
             'interested_in_php',
             'interested_in_javascript',
             'interested_in_machine_learning',
+            'university',
+            'campus',
+            'other_university',
+            'city',
         )
         serialization_options = {
             'university_projects': {
