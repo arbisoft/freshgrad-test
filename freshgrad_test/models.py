@@ -84,8 +84,8 @@ class CandidateInfo(models.Model):
         max_length=200
     )
     makes_me_different = models.CharField(
-        verbose_name=_("What makes you different from your batch mates? (100 characters at max)"),
-        max_length=8
+        verbose_name=_("What makes you different from your batch mates?"),
+        max_length=20
     )
     ideal_organization = models.CharField(
         verbose_name=_("Describe your ideal organization? (50 characters at max)"),
