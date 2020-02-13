@@ -81,6 +81,7 @@ class CandidateInfoForm(forms.ModelForm):
             'campus',
             'other_university',
             'city',
+            'graduation_date',
         )
         serialization_options = {
             'university_projects': {
