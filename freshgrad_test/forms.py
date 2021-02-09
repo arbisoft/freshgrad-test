@@ -33,8 +33,8 @@ class CandidateInfoForm(forms.ModelForm):
         label='Contact Number(s)',
         validators=[
             RegexValidator(
-                regex=r'[0-9]',
-                message="Contact Number is not valid. Contact Number format should be digits only."
+                regex=r'^[0-9]+$',
+                message="Contact Number is not valid. Contact Number format should be +923XXXXXXXXX"
             )
         ]
     )
@@ -51,7 +51,6 @@ class CandidateInfoForm(forms.ModelForm):
     # other_university = forms.CharField(
     #     label=_("Mention Univesity/Campus details if not present in list (optional)")
     # )
-
 
     # def clean_other_university(self):
     #     """
