@@ -14,12 +14,12 @@ class CandidateInfoForm(forms.ModelForm):
     Form to gather additional info of candidate
     """
     confirm_password = forms.CharField(
-        label=_("Confurm Password"),
+        label=_("Confirm Password"),
         widget=forms.PasswordInput(attrs={'tabindex': '5'})
     )
 
     cnic_number = forms.CharField(
-        label=_("CNIC Numbr"),
+        label=_("CNIC Number"),
         validators=[
             RegexValidator(
                 regex=r'[0-9]{5}-[0-9]{7}-[0-9]{1}',
@@ -33,8 +33,8 @@ class CandidateInfoForm(forms.ModelForm):
         label='Contact Number(s)',
         validators=[
             RegexValidator(
-                regex=r'[0-9]',
-                message="Contact Number is not valid. Contact Number format should be digits only."
+                regex=r'^[0-9]+$',
+                message="Contact Number is not valid. Contact Number format should be +923XXXXXXXXX"
             )
         ]
     )
@@ -48,10 +48,17 @@ class CandidateInfoForm(forms.ModelForm):
             )
         ]
     )
+
+    expected_salary = forms.CharField(
+        label="Your salary expections?"
+    )
+    graduation_date = forms.CharField(
+        label="Expctd Gradution Date"
+    )
+
     # other_university = forms.CharField(
     #     label=_("Mention Univesity/Campus details if not present in list (optional)")
     # )
-
 
     # def clean_other_university(self):
     #     """
