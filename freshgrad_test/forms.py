@@ -34,7 +34,7 @@ class CandidateInfoForm(forms.ModelForm):
         validators=[
             RegexValidator(
                 regex=r'^[0-9]+$',
-                message="Contact Number is not valid. Contact Number format should be +923XXXXXXXXX"
+                message="Contact Number is not valid. Contact Number format should be digits only."
             )
         ]
     )
@@ -53,7 +53,7 @@ class CandidateInfoForm(forms.ModelForm):
         label="Your salary expections?"
     )
     graduation_date = forms.CharField(
-        label="Expctd Gradution Date"
+        label="Expected Graduation Date"
     )
 
     # other_university = forms.CharField(
@@ -91,18 +91,18 @@ class CandidateInfoForm(forms.ModelForm):
             'graduation_date',
         )
         serialization_options = {
-            'university_projects': {
-                'field_type': 'textarea',
-            },
-            'extra_activities': {
-                'field_type': 'text',
-            },
-            'freelance_work': {
-                'field_type': 'text',
-            },
-            'biggest_accomplishment': {
-                'field_type': 'text',
-            },
+            # 'university_projects': {
+            #     'field_type': 'textarea',
+            # },
+            # 'extra_activities': {
+            #     'field_type': 'text',
+            # },
+            # 'freelance_work': {
+            #     'field_type': 'text',
+            # },
+            # 'biggest_accomplishment': {
+            #     'field_type': 'text',
+            # },
             'makes_me_different': {
                 'field_type': 'text',
             },
@@ -118,8 +118,8 @@ class CandidateInfoForm(forms.ModelForm):
             'references': {
                 'field_type': 'textarea',
             },
-            'other_technologies': {
-                'field_type': 'textarea',
-            }
+            # 'other_technologies': {
+            #     'field_type': 'textarea',
+            # }
 
         }

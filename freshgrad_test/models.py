@@ -67,37 +67,37 @@ class CandidateInfo(models.Model):
     # technologies_interested = models.ManyToManyField(
     #     Technology, verbose_name=_("Choose the technologies you are interested to work on/learn")
     # )
-    other_technologies = models.TextField(
-        verbose_name=_("Which technologies are you interested to work in? (Python/Django, Scrapy, Android, iOS, "
-                       "PHP, Javascript/ReactJS, Machine Learning)")
-    )
-    university_projects = models.TextField(verbose_name=_("Tell us something about your university project(s)"))
-    extra_activities = models.TextField(
-        verbose_name=_("List down any extra curricular activitiez you're involved in(if any)? (100 characters at max)"),
-        max_length=100
-    )
-    freelance_work = models.TextField(
-        verbose_name=_("Mention any freelance work you do/have done? (200 characters at max)"),
-        max_length=200
-    )
-    biggest_accomplishment = models.TextField(
-        verbose_name=_("Your biggest acomplishment to-date? (200 characters at max)"),
-        max_length=200
-    )
+    # other_technologies = models.TextField(
+    #     verbose_name=_("Which technologies are you interested to work in? (Python/Django, Scrapy, Android, iOS, "
+    #                    "PHP, Javascript/ReactJS, Machine Learning)")
+    # )
+    # university_projects = models.TextField(verbose_name=_("Tell us something about your university project(s)"))
+    # extra_activities = models.TextField(
+    #     verbose_name=_("List down any extra curricular activities you're involved in(if any)? (100 characters at max)"),
+    #     max_length=100
+    # )
+    # freelance_work = models.TextField(
+    #     verbose_name=_("Mention any freelance work you do/have done? (200 characters at max)"),
+    #     max_length=200
+    # )
+    # biggest_accomplishment = models.TextField(
+    #     verbose_name=_("Your biggest accomplishment to-date? (200 characters at max)"),
+    #     max_length=200
+    # )
     makes_me_different = models.CharField(
         verbose_name=_("What makes you different from your batch mates?"),
         max_length=20
     )
     ideal_organization = models.CharField(
         verbose_name=_("Describe your ideal organization? (50 characters at max)"),
-        max_length=51
+        max_length=50
     )
     why_arbisoft = models.TextField(
         verbose_name=_("Why Arbisoft? (50 characters at max)"),
-        max_length=50
+        max_length=51
     )
     expected_salary = models.TextField(
-        verbose_name=_("Your salary expectations?")
+        verbose_name=_("Your salary expections?")
     )
     career_plans = models.TextField(
         verbose_name=_("Your career plans two years down the line? (100 characters at max)"),
