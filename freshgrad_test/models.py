@@ -89,8 +89,8 @@ class CandidateInfo(models.Model):
         max_length=20
     )
     ideal_organization = models.CharField(
-        verbose_name=_("Describe your ideal organization? (50 characters at max)"),
-        max_length=50
+        verbose_name=_("Describe your ideal organization? (100 characters at max)"),
+        max_length=100
     )
     why_arbisoft = models.TextField(
         verbose_name=_("Why Arbisoft? (50 characters at max)"),
