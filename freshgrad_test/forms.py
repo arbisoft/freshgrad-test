@@ -29,15 +29,15 @@ class CandidateInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'tabindex': '1'})
     )
 
-    contact_number = forms.CharField(
-        label='Contact Number(s)',
-        validators=[
-            RegexValidator(
-                regex=r'^[0-9]+$',
-                message="Contact Number is not valid. Contact Number format should be digits only."
-            )
-        ]
-    )
+    # contact_number = forms.CharField(
+    #     label='Contact Number(s)',
+    #     validators=[
+    #         RegexValidator(
+    #             regex=r'[0-9]',
+    #             message="Contact Number is not valid. Contact Number format should be digits only."
+    #         )
+    #     ]
+    # )
 
     age = forms.CharField(
         label="Age (between 18 to 30)",
